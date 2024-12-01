@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshGo Food Delivery</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        ion-header {
+            background-color: #477A5A;
+            color: white;
+        }
+
+        ion-tab-button {
+            --color-selected: #477A5A; /* Selected tab color */
+            --color: #777; /* Unselected tab color */
+        }
+
+        ion-icon {
+            font-size: 24px; /* Increased icon size */
+        }
+
+        ion-title {
+            color: white;
+        }
+
+        ion-toolbar {
+            --background: transparent;
+        }
+
+        ion-content {
+            padding: 20px;
+            --overflow: auto;
+        }
+
+        ion-button {
+            --background: #477A5A; /* Button background color */
+            --color: white; /* Button text color */
+            --border-radius: 5px; /* Button border radius */
+        }
+
+        .example-content {
+            text-align: center;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+
+        .horizontal-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 10px 0;
+        }
+
+        .cards {
+            background: white;
+            padding: 20px;
+        }
+
+        .cards img {
+            border-radius: 10px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-left: 20px;
+            flex: 0 0 auto; /* Prevents cards from growing */
+            scroll-snap-align: start; /* Snap alignment */
+            width: 150px; /* Width of each card */
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #000000; 
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin: 20px 0 10px;
+            margin-left: 20px;
+            font-weight: bold;
+            color: #000000; 
+        }
+
+        .profile-content {
+            padding: 20px;
+            background-color: #ffffff; /* White background for profile section */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            margin: 10px 0; /* Margin for spacing */
+        }
+
+        ion-item {
+            background: none; /* Remove background for items */
+            border: none; /* Remove borders */
+        }
+
+        ion-note {
+            color: #477A5A; /* Matching theme color */
+        }
+
+        ion-label h2 {
+            font-size: 18px;
+            color: #477A5A; /* Matching theme color */
+        }
+
+        ion-list {
+            margin: 0 20px; /* Side margin for list */
+        }
+
+        .menu-section {
+            padding: 20px;
+            background-color: #ffffff; /* White background for menu section */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            margin: 10px 0; /* Margin for spacing */
+        }
+    </style>
+</head>
+<body>
+    <ion-tabs>
+        <ion-tab tab="home">
+            <ion-nav id="home-nav"></ion-nav>
+            <div id="home-page">
+                <ion-header>
+                    <ion-toolbar>
+                        <ion-title>Home</ion-title>
+                    </ion-toolbar>
+                </ion-header>
+                <ion-content>
+                    <div class="cards">
+                        <img src="https://img.freepik.com/free-photo/stir-fry-spaghetti-put-pork-bowl_1150-24192.jpg?t=st=1733056850~exp=1733060450~hmac=d89e03bfbc42c1273b3ac38800ddaed28b3d5c2a9bce46910794a89d120e1644&w=826" alt="Delicious Food">
+                    </div>
+                    <div class="section-title">Choose Food</div>
+                    <div class="horizontal-scroll">
+                        <div class="card">
+                            <img src="https://img.freepik.com/free-photo/stir-fry-spaghetti-put-pork-bowl_1150-24192.jpg?t=st=1733056850~exp=1733060450~hmac=d89e03bfbc42c1273b3ac38800ddaed28b3d5c2a9bce46910794a89d120e1644&w=826" alt="Delicious Food">
+                            <div class="card-title">Pasta</div>
+                        </div>
+                        <div class="card">
+                            <img src="https://img.freepik.com/free-photo/dietary-salad-with-tomatoes-feta-lettuce-spinach-pine-nuts_2829-20128.jpg?t=st=1733057576~exp=1733061176~hmac=5132a57471b70c99ab5b74e255c9950b133e01bddf790f2a5fc268525089ba20&w=826" alt="Fresh Salad">
+                            <div class="card-title">Fresh Salad</div>
+                        </div>
+                        <div class="card">
+                            <img src="https://via.placeholder.com/150" alt="Recommended Dish">
+                            <div class="card-title">Burger</div>
+                        </div>
+                        <div class="card">
+                            <img src="https://via.placeholder.com/150" alt="Recommended Dish">
+                            <div class="card-title">Sushi</div>
+                        </div>
+                    </div>
+
+                    <div class="section-title">Recommended</div>
+                    <div class="horizontal-scroll">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/150" alt="Recommended Dish">
+                            <div class="card-title">Creamy Pasta</div>
+                        </div>
+                        <div class="card">
+                            <img src="https://via.placeholder.com/150" alt="Recommended Dish">
+                            <div class="card-title">Cheesy Pizza</div>
+                        </div>
+                    </div>
+                </ion-content>
+            </div>
+        </ion-tab>
+        <ion-tab tab="menu">
+            <ion-nav id="menu-nav"></ion-nav>
+            <div id="menu-page">
+                <ion-header>
+                    <ion-toolbar>
+                        <ion-title>Menu</ion-title>
+                    </ion-toolbar>
+                </ion-header>
+                <ion-content>
+                    <div class="menu-section">
+                        <div class="section-title">Available Dishes</div>
+                        <ion-list>
+                            <ion-item>
+                                <ion-avatar slot="start">
+                                    <ion-img src="https://via.placeholder.com/150" alt="Creamy Pasta" />
+                                </ion-avatar>
+                                <ion-label>
+                                    <h2>Creamy Pasta</h2>
+                                    <p>$12.99</p>
+                                </ion-label>
+                                <ion-button fill="solid" slot="end">Add</ion-button>
+                            </ion-item>
+                            <ion-item>
+                                <ion-avatar slot="start">
+                                    <ion-img src="https://via.placeholder.com/150" alt="Cheesy Pizza" />
+                                </ion-avatar>
+                                <ion-label>
+                                    <h2>Cheesy Pizza</h2>
+                                    <p>$10.99</p>
+                                </ion-label>
+                                <ion-button fill="solid" slot="end">Add</ion-button>
+                            </ion-item>
+                            <ion-item>
+                                <ion-avatar slot="start">
+                                    <ion-img src="https://via.placeholder.com/150" alt="Fresh Salad" />
+                                </ion-avatar>
+                                <ion-label>
+                                    <h2>Fresh Salad</h2>
+                                    <p>$8.99</p>
+                                </ion-label>
+                                <ion-button fill="solid" slot="end">Add</ion-button>
+                            </ion-item>
+                            <ion-item>
+                                <ion-avatar slot="start">
+                                    <ion-img src="https://via.placeholder.com/150" alt="Sushi" />
+                                </ion-avatar>
+                                <ion-label>
+                                    <h2>Sushi</h2>
+                                    <p>$14.99</p>
+                                </ion-label>
+                                <ion-button fill="solid" slot="end">Add</ion-button>
+                            </ion-item>
+                            <ion-item>
+                                <ion-avatar slot="start">
+                                    <ion-img src="https://via.placeholder.com/150" alt="Burger" />
+                                </ion-avatar>
+                                <ion-label>
+                                    <h2>Burger</h2>
+                                    <p>$11.99</p>
+                                </ion-label>
+                                <ion-button fill="solid" slot="end">Add</ion-button>
+                            </ion-item>
+                        </ion-list>
+                    </div>
+                </ion-content>
+            </div>
+        </ion-tab>
+
+        <ion-tab tab="cart">
+            <ion-nav id="cart-nav"></ion-nav>
+            <div id="cart-page">
+                <ion-header>
+                    <ion-toolbar>
+                        <ion-title>Cart</ion-title>
+                    </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                    <ion-button id="open-modal" expand="block">View Cart</ion-button>
+                    <ion-modal trigger="open-modal" initial-breakpoint="0.5">
+                        <ion-content>
+                            <ion-list>
+                                <ion-item>
+                                    <ion-avatar slot="start">
+                                        <ion-img src="https://img.freepik.com/free-photo/stir-fry-spaghetti-put-pork-bowl_1150-24192.jpg?w=826" />
+                                    </ion-avatar>
+                                    <ion-label>
+                                        <h2>Pasta</h2>
+                                        <p class="price">$45.29</p>
+                                        <ion-button fill="clear" slot="end">+</ion-button>
+                                        <ion-button fill="clear" slot="end">-</ion-button>
+                                    </ion-label>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-avatar slot="start">
+                                        <ion-img src="https://img.freepik.com/free-photo/dietary-salad-with-tomatoes-feta-lettuce-spinach-pine-nuts_2829-20128.jpg?w=826" />
+                                    </ion-avatar>
+                                    <ion-label>
+                                        <h2>Fresh Salad</h2>
+                                        <p class="price">$35.50</p>
+                                        <ion-button fill="clear" slot="end">+</ion-button>
+                                        <ion-button fill="clear" slot="end">-</ion-button>
+                                    </ion-label>
+                                </ion-item>
+                            </ion-list>
+                            <div class="order-summary">
+                                <p>Subtotal: $80.79</p>
+                                <p>Shipping Fee: $5.00</p>
+                                <p>Tax (12%): $10.00</p>
+                                <p>Total Amount: $95.79</p>
+                                <ion-button expand="full">Order Now</ion-button>
+                            </div>
+                        </ion-content>
+                    </ion-modal>
+                </ion-content>
+            </div>
+        </ion-tab>
+
+        <ion-tab tab="profile">
+            <ion-nav id="profile-nav"></ion-nav>
+            <div id="profile-page">
+                <ion-header>
+                    <ion-toolbar>
+                        <ion-title>Profile</ion-title>
+                    </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                    <div class="example-content">
+                        <h2>User Profile</h2>
+                        <ion-item>
+                            <ion-label>Name:</ion-label>
+                            <ion-note slot="end">John Doe</ion-note>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Email:</ion-label>
+                            <ion-note slot="end">johndoe@example.com</ion-note>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Phone:</ion-label>
+                            <ion-note slot="end">(123) 456-7890</ion-note>
+                        </ion-item>
+                    </div>
+
+                    <div class="section-title">Previous Orders</div>
+                    <ion-list>
+                        <ion-item>
+                            <ion-label>
+                                <h2>Pasta</h2>
+                                <p>Order Date: 2023-11-15</p>
+                                <p>Status: Delivered</p>
+                            </ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>
+                                <h2>Fresh Salad</h2>
+                                <p>Order Date: 2023-11-12</p>
+                                <p>Status: Delivered</p>
+                            </ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>
+                                <h2>Cheesy Pizza</h2>
+                                <p>Order Date: 2023-11-10</p>
+                                <p>Status: Cancelled</p>
+                            </ion-label>
+                        </ion-item>
+                    </ion-list>
+                </ion-content>
+            </div>
+        </ion-tab>
+
+        <ion-tab-bar slot="bottom">
+            <ion-tab-button tab="home">
+                <ion-icon name="home"></ion-icon>
+                Home
+            </ion-tab-button>
+            <ion-tab-button tab="menu">
+                <ion-icon name="fast-food"></ion-icon>
+                Menu
+            </ion-tab-button>
+            <ion-tab-button tab="cart">
+                <ion-icon name="cart"></ion-icon>
+                Cart
+            </ion-tab-button>
+            <ion-tab-button tab="profile">
+                <ion-icon name="person"></ion-icon>
+                Profile
+            </ion-tab-button>
+        </ion-tab-bar>
+    </ion-tabs>
+
+    <script>
+        const homeNav = document.querySelector('#home-nav');
+        const homePage = document.querySelector('#home-page');
+        homeNav.root = homePage;
+
+        const menuNav = document.querySelector('#menu-nav');
+        const menuPage = document.querySelector('#menu-page');
+        menuNav.root = menuPage;
+
+        const cartNav = document.querySelector('#cart-nav');
+        const cartPage = document.querySelector('#cart-page');
+        cartNav.root = cartPage;
+
+        const profileNav = document.querySelector('#profile-nav');
+        const profilePage = document.querySelector('#profile-page');
+        profileNav.root = profilePage;
+
+        var modal = document.querySelector('ion-modal');
+        var searchBar = document.querySelector('ion-searchbar');
+
+        modal.breakpoints = [0, 0.25, 0.5, 0.75];
+
+        searchBar.addEventListener('click', () => {
+            modal.setCurrentBreakpoint(0.75);
+        });
+    </script>
+</body>
+</html>
